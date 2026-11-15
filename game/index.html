@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RIFT FIGHTERS — Make the best game</title>
+<link rel="stylesheet" href="css/game.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.min.js" } }
+</script>
+</head>
+<body>
+<div id="stage"></div>
+<div id="flash"></div>
+<div id="ult-banner">ULTIMATE!</div>
+<div id="dmg-layer"></div>
+
+<!-- HUD -->
+<div id="hud">
+  <div class="hp-side left">
+    <div class="hp-name" id="hp-a-txt">Kael 100 / 100</div>
+    <div class="hp-bar"><div class="hp-fill" id="hp-a"></div></div>
+    <div class="pips" id="pips-a"><span></span><span></span></div>
+  </div>
+  <div class="timer-wrap"><div id="timer">60</div><div class="round-label">ROUND</div></div>
+  <div class="hp-side right">
+    <div class="hp-name" id="hp-b-txt">Mira 90 / 90</div>
+    <div class="hp-bar"><div class="hp-fill" id="hp-b"></div></div>
+    <div class="pips" id="pips-b"><span></span><span></span></div>
+    <div class="bot-meter"><div id="meter-b"></div></div>
+  </div>
+</div>
+
+<!-- action pad -->
+<div id="pad-wrap">
+  <div id="meter-wrap"><div id="meter-a"></div><span id="meter-a-txt">METER 0%</span></div>
+  <div id="buttons"></div>
+  <div id="move-hint">Move: A / D or ← → &nbsp;·&nbsp; Hold left / right side of the arena to walk</div>
+</div>
+
+<!-- TITLE -->
+<div class="screen show" id="screen-title">
+  <h1>RIFT<br>FIGHTERS</h1>
+  <p class="tagline">Six warriors. One rift. Best of three rounds.</p>
+  <div class="menu-btns">
+    <button id="btn-fight" class="big-btn">FIGHT</button>
+    <button id="btn-controls" class="big-btn ghost">CONTROLS</button>
+    <button id="btn-audio" class="big-btn ghost">SOUND: ON</button>
+  </div>
+  <p class="foot">Original 3D fighting game · keyboard + mouse · works offline</p>
+</div>
+
+<!-- SELECT -->
+<div class="screen" id="screen-select">
+  <h2>CHOOSE YOUR FIGHTER</h2>
+  <div class="select-cols">
+    <div class="select-col">
+      <h3>YOU</h3>
+      <div id="hero-grid" class="hero-grid"></div>
+      <div id="sel-preview">K</div>
+      <div id="sel-name">Kael — Ember Fist</div>
+      <div id="sel-desc"></div>
+      <ul id="sel-skills"></ul>
+    </div>
+    <div class="select-col">
+      <h3>OPPONENT (BOT)</h3>
+      <div id="bot-grid" class="hero-grid"></div>
+      <h3>DIFFICULTY</h3>
+      <div class="diff-row">
+        <button id="diff-easy" class="diff-btn">EASY</button>
+        <button id="diff-normal" class="diff-btn sel">NORMAL</button>
+        <button id="diff-hard" class="diff-btn">HARD</button>
+      </div>
+      <button id="btn-start" class="big-btn">START FIGHT</button>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="screen" id="screen-intro">
+  <div id="intro-names">Kael VS Mira</div>
+  <div id="intro-sub">BEST OF 3 · THE SHATTERCOURT</div>
+  <div id="intro-count">3</div>
+</div>
+
+<!-- ROUND END -->
+<div class="screen" id="screen-roundend">
+  <div id="roundend-text">ROUND WON</div>
+  <div id="roundend-score">1 — 0</div>
+  <div class="roundend-sub">Next round begins…</div>
+</div>
+
+<!-- MATCH END -->
+<div class="screen" id="screen-matchend">
+  <div id="matchend-title" class="win">VICTORY</div>
+  <div id="matchend-score">2 — 0</div>
+  <div id="matchend-dmg">Damage dealt: 0</div>
+  <div class="menu-btns">
+    <button id="btn-rematch" class="big-btn">REMATCH</button>
+    <button id="btn-change" class="big-btn ghost">CHANGE FIGHTER</button>
+    <button id="btn-menu" class="big-btn ghost">MENU</button>
+  </div>
+</div>
+
+<!-- CONTROLS -->
+<div class="screen" id="controls-overlay">
+  <h2>CONTROLS</h2>
+  <div class="controls-grid">
+    <span>J</span><span>Punch</span><span>K</span><span>Kick</span>
+    <span>L (hold)</span><span>Block</span><span>Space</span><span>Jump</span>
+    <span>Shift</span><span>Dash</span><span>Q / E / R</span><span>Skill 1 / 2 / 3</span>
+    <span>F</span><span>Ultimate (full meter)</span><span>A / D</span><span>Move</span>
+  </div>
+  <p>Block reduces damage to 20% chip and builds meter. Landing hits builds meter; at 100% press F for your Ultimate.</p>
+  <button id="btn-close-controls" class="big-btn">CLOSE</button>
+</div>
+
+<div id="fatal"></div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
